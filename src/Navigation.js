@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import P from "prop-types";
-import Viewport from './Viewport'
+import Viewport from "./Viewport";
+import Dingus from "dingus";
 
 export default class Navigation extends Component {
   static contextTypes = {
@@ -9,25 +10,22 @@ export default class Navigation extends Component {
   };
 
   componentDidMount() {
-    window.addEventListener("keydown", this.handleKeyDown);
-    window.addEventListener("touchend", this.handleTouchEnd);
+    this.dingus = new Dingus();
+    this.dingus.on("*", this.handleClicker);
+    // window.addEventListener("touchend", this.handleTouchEnd);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("keydown", this.handleKeyDown);
-    window.removeEventListener("touchend", this.handleTouchEnd);
+    this.dingus.destroy();
+    // window.removeEventListener("touchend", this.handleTouchEnd);
   }
 
-  handleKeyDown = event => {
-    switch (event.keyCode) {
-      case 8: // bckspc
-      case 33: // pg up
-      case 37: // left arr
+  handleClicker = (button, event) => {
+    switch (button) {
+      case Dingus.PREV:
         this.navigate(-1);
         break;
-      case 32: // space
-      case 34: // pg dwn
-      case 39: // right arr
+      case Dingus.NEXT:
         this.navigate(1);
         break;
       default:

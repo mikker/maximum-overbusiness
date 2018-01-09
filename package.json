@@ -19,6 +19,7 @@
     "test:watch": "nwb test-react --server"
   },
   "dependencies": {
+    "dingus": "^0.10.0",
     "react-router-dom": "^4.2.2"
   },
   "peerDependencies": {
