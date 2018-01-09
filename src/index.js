@@ -1,9 +1,3 @@
-import React, {Component} from 'react'
-
-export default class extends Component {
-  render() {
-    return <div>
-      <h2>Welcome to React components</h2>
-    </div>
-  }
-}
+export const Deck = require('./Deck').default
+export const Slide = require('./Slide').default
+export const Slides = require('./Slides').default

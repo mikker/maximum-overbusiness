@@ -1,15 +1,20 @@
-import React, {Component} from 'react'
-import {render} from 'react-dom'
+import React, { Component } from "react";
+import { render } from "react-dom";
 
-import Example from '../../src'
+import "./index.css";
+
+import { Deck, Slide } from "../../src";
+import { IFrame, Title } from "../../src/templates";
+
+const slides = [
+  <Title>1</Title>,
+  <IFrame src="https://brnbw.com">Caption</IFrame>
+];
 
 class Demo extends Component {
   render() {
-    return <div>
-      <h1>maximum-overbusiness Demo</h1>
-      <Example/>
-    </div>
+    return <Deck slides={slides} />;
   }
 }
 
-render(<Demo/>, document.querySelector('#demo'))
+render(<Demo />, document.querySelector("#demo"));
