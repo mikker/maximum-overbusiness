@@ -2,7 +2,7 @@ import React from "react";
 import P from "prop-types";
 
 const Slide = ({ style, ...props }, { theme: { slide: slideTheme } }) => (
-  <div style={{ ...slideTheme.style, ...style }} {...props} />
+  <div style={{ ...slideTheme, ...style }} {...props} />
 );
 
 Slide.contextTypes = {

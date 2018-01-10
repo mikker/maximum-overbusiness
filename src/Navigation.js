@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import P from "prop-types";
 import Viewport from "./Viewport";
 import Dingus from "dingus";
-import { TransitionGroup } from "react-transition-group";
-import Slide from "./animations/Slide";
 
 export default children =>
   class Navigation extends Component {
@@ -64,16 +62,6 @@ export default children =>
       const { match: { params } } = this.props;
       const { prev, curr } = this.state;
 
-      console.log('%c---', 'color: red')
-
-      return (
-        <Viewport>
-          <TransitionGroup>
-            <Slide direction={this.getDirection} key={curr}>
-              {children[curr - 1]}
-            </Slide>
-          </TransitionGroup>
-        </Viewport>
-      );
+      return <Viewport>{children[curr - 1]}</Viewport>;
     }
   };
