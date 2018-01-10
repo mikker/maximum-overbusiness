@@ -5,7 +5,8 @@ module.exports = {
     umd: {
       global: 'MaximumOverbusiness',
       externals: {
-        react: 'React'
+        react: 'React',
+        'react-router': 'ReactRouter'
       }
     }
   }

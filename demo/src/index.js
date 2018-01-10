@@ -17,7 +17,7 @@ class Demo extends Component {
         <TitleSlide>Every slide is a separate component</TitleSlide>
         <SerifSlide>&hellip; that may look however you want them to</SerifSlide>
         <TitleSlide>You can even make them be iframes eg:</TitleSlide>
-        <IFrameSlide src="http://example.com" />
+        <IFrameSlide src="https://example.com" />
         <Default>
           Out of the box though, it's pretty boring. On purpose! It gets out of
           the way and lets you build your weird-ass slides like you want 'em.

@@ -1,6 +1,9 @@
-<p align='center'><img src="https://s3.brnbw.com/maximum-overbusiness-AUAy78UaQh.gif" alt="MAXIMUM OVERBUSINESS" /></p>
+<p align='center'>
+  <img src="https://s3.brnbw.com/maximum-overbusiness-AUAy78UaQh.gif" alt="MAXIMUM OVERBUSINESS" /><br />
+  **MAXIMUM OVERBUSINESS** is a tool for building presentations as websites using React.
+</p>
 
-**MAXIMUM OVERBUSINESS** is a tool for building presentations as websites using React.
+---
 
 * [Demo](https://maximum-overbusiness.now.sh) ([Source](https://github.com/mikker/maximum-overbusiness/blob/master/demo/src/index.js))
 
