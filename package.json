@@ -19,8 +19,12 @@
     "test:watch": "nwb test-react --server"
   },
   "dependencies": {
-    "dingus": "^0.10.0",
-    "react-router-dom": "^4.2.2"
+    "dingus": "^0.12.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-transition": "^1.1.3",
+    "react-slick": "^0.16.0",
+    "react-transition-group": "^2.2.1",
+    "slick-carousel": "^1.8.1"
   },
   "peerDependencies": {
     "react": "16.x"

@@ -1,6 +1,12 @@
 export default {
   deck: {
-    style: { height: "100vh", display: "flex" }
+    style: {
+      position: 'relative',
+      height: "100vh",
+      width: "100vw",
+      display: "flex",
+      overflow: "hidden"
+    }
   },
   slide: {
     style: {

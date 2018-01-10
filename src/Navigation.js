@@ -2,58 +2,78 @@ import React, { Component } from "react";
 import P from "prop-types";
 import Viewport from "./Viewport";
 import Dingus from "dingus";
+import { TransitionGroup } from "react-transition-group";
+import Slide from "./animations/Slide";
 
-export default class Navigation extends Component {
-  static contextTypes = {
-    slides: P.array.isRequired,
-    deckProps: P.object.isRequired
-  };
+export default children =>
+  class Navigation extends Component {
+    constructor(props) {
+      super(props);
 
-  componentDidMount() {
-    this.dingus = new Dingus();
-    this.dingus.on("*", this.handleClicker);
-    // window.addEventListener("touchend", this.handleTouchEnd);
-  }
+      this.state = {
+        prev: null,
+        curr: parseInt(props.match.params.slide, 10)
+      };
+    }
 
-  componentWillUnmount() {
-    this.dingus.destroy();
-    // window.removeEventListener("touchend", this.handleTouchEnd);
-  }
+    componentDidMount() {
+      this.dingus = new Dingus();
+      this.dingus.on(Dingus.PREV, this.handlePrev);
+      this.dingus.on(Dingus.NEXT, this.handleNext);
+    }
 
-  handleClicker = (button, event) => {
-    switch (button) {
-      case Dingus.PREV:
-        this.navigate(-1);
-        break;
-      case Dingus.NEXT:
-        this.navigate(1);
-        break;
-      default:
-        break;
+    componentWillUnmount() {
+      this.dingus.destroy();
+    }
+
+    componentWillReceiveProps(newProps) {
+      const curr = parseInt(newProps.match.params.slide, 10);
+      const prev = parseInt(this.props.match.params.slide, 10);
+
+      this.setState(state => ({
+        prev: curr !== prev ? prev : null,
+        curr
+      }));
+    }
+
+    handlePrev = () => {
+      this.navigate(-1);
+    };
+
+    handleNext = () => {
+      this.navigate(1);
+    };
+
+    navigate = direction => {
+      const { history, match: { params } } = this.props;
+
+      const nextSlide = Math.max(
+        1,
+        Math.min(children.length, parseInt(params.slide, 10) + direction)
+      );
+
+      history.push(`/${nextSlide}`);
+    };
+
+    getDirection = () => {
+      const { prev, curr } = this.state;
+      return prev < curr ? "right" : "left";
+    };
+
+    render() {
+      const { match: { params } } = this.props;
+      const { prev, curr } = this.state;
+
+      console.log('%c---', 'color: red')
+
+      return (
+        <Viewport>
+          <TransitionGroup>
+            <Slide direction={this.getDirection} key={curr}>
+              {children[curr - 1]}
+            </Slide>
+          </TransitionGroup>
+        </Viewport>
+      );
     }
   };
-
-  handleTouchEnd = event => {
-    this.navigate(1);
-  };
-
-  navigate = direction => {
-    const { history, match: { params } } = this.props;
-    const { slides } = this.context;
-
-    const nextSlide = Math.max(
-      1,
-      Math.min(slides.length, parseInt(params.slide, 10) + direction)
-    );
-
-    history.push(`/${nextSlide}`);
-  };
-
-  render() {
-    const { match: { params } } = this.props;
-    const { slides, deckProps } = this.context;
-    const slideIndex = parseInt(params.slide, 10) - 1;
-
-    return <Viewport {...deckProps}>{slides[slideIndex]}</Viewport>;
-  }
-}

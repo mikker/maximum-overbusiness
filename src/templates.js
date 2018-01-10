@@ -21,3 +21,8 @@ export const IFrame = ({ src, children, style, ...props }) => (
     />
   </Slide>
 );
+
+export default {
+  Title,
+  IFrame
+}

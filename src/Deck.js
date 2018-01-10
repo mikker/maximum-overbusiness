@@ -15,26 +15,24 @@ export default class Deck extends Component {
   };
 
   static childContextTypes = {
-    slides: P.array.isRequired,
-    deckProps: P.object.isRequired,
     theme: P.object.isRequired
   };
 
   getChildContext() {
-    const { theme, slides, ...props } = this.props;
+    const { theme, ...props } = this.props;
 
     return {
-      slides,
-      deckProps: props,
       theme
     };
   }
 
   render() {
+    const { children } = this.props
+
     return (
       <Router>
         <Switch>
-          <Route path="/:slide" component={Navigation} />
+          <Route path="/:slide" component={Navigation(children)} />
           <Redirect from="/" to="/1" />
         </Switch>
       </Router>

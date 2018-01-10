@@ -1,19 +1,23 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 
-import "./index.css";
-
 import { Deck, Slide } from "../../src";
-import { IFrame, Title } from "../../src/templates";
+import { Title, IFrame } from "../../src/templates";
 
-const slides = [
-  <Title>1</Title>,
-  <IFrame src="https://brnbw.com">Caption</IFrame>
-];
+import "./index.css";
 
 class Demo extends Component {
   render() {
-    return <Deck slides={slides} />;
+    return <Deck>
+      <Title>1</Title>
+      <Title>2</Title>
+      <Title>3</Title>
+      <Title>4</Title>
+      <Title>5</Title>
+      <Title>6</Title>
+      <Title>7</Title>
+      <IFrame src="https://example.com">Caption</IFrame>
+    </Deck>
   }
 }
 
