@@ -1,16 +1,33 @@
-# maximum-overbusiness
+<p align='center'><img src="https://s3.brnbw.com/maximum-overbusiness-AUAy78UaQh.gif" alt="MAXIMUM OVERBUSINESS" /></p>
 
-[![Travis][build-badge]][build]
-[![npm package][npm-badge]][npm]
-[![Coveralls][coveralls-badge]][coveralls]
+**MAXIMUM OVERBUSINESS** is a tool for building presentations as websites using React.
 
-Describe maximum-overbusiness here.
+* [Demo](https://maximum-overbusiness.now.sh) ([Source](https://github.com/mikker/maximum-overbusiness/blob/master/demo/src/index.js))
 
-[build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
-[build]: https://travis-ci.org/user/repo
+## Usage
 
-[npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
-[npm]: https://www.npmjs.org/package/npm-package
+```javascript
+import React from "react"
+import { render } from "react-dom"
+import { Deck, Slide } from "maximum-overbusiness"
 
-[coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
-[coveralls]: https://coveralls.io/github/user/repo
+const Presentation = () => (
+  <Deck>
+    <Slide>Many graphs</Slide>
+    <Slide>very Q4</Slide>
+    <Slide>Always Be Closing (your jsx)</Slide>
+  </Deck>
+);
+
+render(<Presentation />, document.getElementById('root'));
+```
+
+See [the Demo](https://maximum-overbusiness.now.sh) for more advanced usage and introduction.
+
+Change slides with `space`, `<-`, `->` or your [wireless presentation dingus](https://github.com/mikker/dingus).
+
+For maximum Developer Experience, offline support and more, use along with [create-react-app](https://github.com/facebookincubator/create-react-app).
+
+## License
+
+MIT
