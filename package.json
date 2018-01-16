@@ -1,6 +1,6 @@
 {
   "name": "maximum-overbusiness",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "maximum-overbusiness React component",
   "main": "lib/index.js",
   "module": "es/index.js",
