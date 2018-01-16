@@ -1,2 +1,2 @@
-export const Deck = require('./Deck').default
-export const Slide = require('./Slide').default
+export { default as Deck } from './Deck'
+export { default as Slide } from './Slide'
