@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import P from "prop-types";
 import Viewport from "./Viewport";
 import Dingus from "dingus";
+import Swipeable from "react-swipeable";
 
 export default children =>
   class Navigation extends Component {
@@ -62,6 +63,10 @@ export default children =>
       const { match: { params } } = this.props;
       const { prev, curr } = this.state;
 
-      return <Viewport>{children[curr - 1]}</Viewport>;
+      return (
+        <Swipeable onSwipingRight={this.handlePrev} onSwipingLeft={this.handleNext}>
+          <Viewport>{children[curr - 1]}</Viewport>
+        </Swipeable>
+      );
     }
   };
