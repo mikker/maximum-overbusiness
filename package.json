@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "dingus": "^0.12.1",
-    "react-swipeable": "^4.2.0"
+    "react-swipeable": "^5.1.0"
   },
   "peerDependencies": {
     "react": "16.x",
