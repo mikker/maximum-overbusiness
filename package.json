@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "nwb": "0.25.x",
-    "react": "^16.2.0",
+    "react": "^17.0.1",
     "react-dom": "^16.2.0",
     "react-router-dom": "^5.0.0"
   },
